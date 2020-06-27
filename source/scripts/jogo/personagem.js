@@ -1,16 +1,22 @@
 class Personagem extends Animacao {
-    constructor(matriz, imagem, posicaoX,  largura, altura, larguraSprite, alturaSprite, somPulo) {
-        super(matriz, imagem, posicaoX,  largura, altura, larguraSprite, alturaSprite);
-        this.gravidade = 3;
+    constructor(matriz, imagem, posicaoX, variacaoY,  largura, altura, larguraSprite, alturaSprite, somPulo) {
+        super(matriz, imagem, posicaoX, variacaoY, largura, altura, larguraSprite, alturaSprite);
+        this.gravidade = 6;
         this.velocidadePulo = 0;
-        this.yInicial = height - this.altura;
+        this.variacaoY = variacaoY;
+        this.yInicial = height - this.altura - variacaoY;
         this.y = this.yInicial;
         this.somPulo = somPulo;
+        this.quantidadeMaximaPulos = 2;
+        this.quantidadePulosConsecutivos = 0;
     }
 
     pular() {
-        this.velocidadePulo = -35;
-        this.somPulo.play();
+        if (this.quantidadePulosConsecutivos < this.quantidadeMaximaPulos) {
+            this.velocidadePulo = -50;
+            this.somPulo.play();
+            this.quantidadePulosConsecutivos++;
+        }
     }
 
     aplicarGravidade() {
@@ -19,14 +25,33 @@ class Personagem extends Animacao {
 
         if (this.y > this.yInicial) {
             this.y = this.yInicial;
+            this.quantidadePulosConsecutivos = 0;
         }
     }
 
-    detectarColisao(inimigo) {
+    detectarColisao(inimigo, mostrarAreas = false) {
+        noFill();
         const precisao = .7;
-
-        const colisao = collideRectRect(this.x, this.y, this.largura * precisao, this.altura * precisao,
-            inimigo.x, inimigo.y, inimigo.largura * precisao, inimigo.altura * precisao);
+        
+        if (mostrarAreas) {
+            rect(this.x, 
+                this.y, 
+                this.largura * precisao, 
+                this.altura * precisao);
+            rect(inimigo.x, 
+                inimigo.y, 
+                inimigo.largura * precisao, 
+                inimigo.altura * precisao);
+        }
+        const colisao = collideRectRect(
+            this.x, 
+            this.y, 
+            this.largura * precisao, 
+            this.altura * precisao,
+            inimigo.x, 
+            inimigo.y, 
+            inimigo.largura * precisao, 
+            inimigo.altura * precisao);
         return colisao;    
     }
 }
