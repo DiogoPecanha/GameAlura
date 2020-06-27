@@ -17,8 +17,3 @@ Desenvolva um Game
 - Dia 3: [Mais inimigos e pontuação](https://www.youtube.com/watch?v=IuVlkxZd4GE&feature=emb_title)
 - Dia 4: [Estado do jogo com cenas diferentes](https://www.youtube.com/watch?v=2nETUc4MCZo&feature=emb_title) 
 - Dia 5: [Vidas e mapa](https://www.youtube.com/watch?v=HD1knuq2v2g&feature=emb_title)
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
