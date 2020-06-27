@@ -1,18 +1,22 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Projeto #ImersãoGameDev da [Alura] (https://www.alura.com.br/imersao-gamedev-javascript/)
+Vamos criar nosso jogo, com o P5JS e JavaScript.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Desenvolva um Game
+5 aulas exclusivas e inéditas!
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+- Totalmente gratuito e inédito
+- De 22 de junho a 26 de junho de 2020
+- Crie e coloque no ar seu próprio game
+- Comunidade exclusiva no Discord!!
+- Avisos do início das aulas direto no seu e-mail
+- Requisitos: lógica de programação
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Links Alura
+- Dia 1: [Motor do Jogo](https://www.youtube.com/watch?v=8glxH8aS7ko&feature=emb_title)
+- Dia 2: [Fluxo de vida, missão e falha](https://www.youtube.com/watch?v=tlkOFTWIrCo)
+- Dia 3: [Mais inimigos e pontuação](https://www.youtube.com/watch?v=IuVlkxZd4GE&feature=emb_title)
+- Dia 4: [Estado do jogo com cenas diferentes](https://www.youtube.com/watch?v=2nETUc4MCZo&feature=emb_title) 
+- Dia 5: [Vidas e mapa](https://www.youtube.com/watch?v=HD1knuq2v2g&feature=emb_title)
 
 If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
 - [ASP.NET Core](https://github.com/aspnet/Home)
