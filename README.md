@@ -1,4 +1,4 @@
-# Projeto #ImersãoGameDev da [Alura] (https://www.alura.com.br/imersao-gamedev-javascript/)
+# Projeto #ImersãoGameDev da [Alura](https://www.alura.com.br/imersao-gamedev-javascript/)
 Vamos criar nosso jogo, com o P5JS e JavaScript.
 
 Desenvolva um Game
