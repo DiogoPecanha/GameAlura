@@ -1,11 +1,14 @@
 let imagemCenario;
 let imagemPersonagem;
 let imagemInimigoGota;
+let imagemInimigoGotaVoadora;
+let imagemGameOver;
 let cenario;
 let personagem;
-let inimigoGota;
 let somJogo;
 let somPulo;
+let pontuacao;
+
 const matrizInimigo = [
     [0, 0],
     [104, 0],
@@ -56,21 +59,83 @@ const matrizPersonagem = [
     [660, 810]
 ];
 
+const matrizTroll = [
+    [0,0],
+    [400,0],
+    [800,0],
+    [1200,0],
+    [1600,0],
+    [0,400],
+    [400,400],
+    [800,400],
+    [1200, 400],
+    [1600, 400],
+    [0,800],
+    [400, 800],
+    [800, 800],
+    [1200, 800],
+    [1600, 800],
+    [0, 1200],
+    [400, 1200],
+    [800, 1200],
+    [1200, 1200],
+    [1600, 1200], 
+    [0, 1600],
+    [400, 1600],
+    [800, 1600],
+    [1200, 1600],
+    [1600, 1600],
+    [0, 2000],
+    [400, 2000],
+    [800, 2000],
+  ];
+
+const matrizGotaVoadora = [
+    [0,0],
+    [200, 0],
+    [400, 0],
+    [0, 150],
+    [200, 150],
+    [400, 150],
+    [0, 300],
+    [200, 300],
+    [400, 300],
+    [0, 450],
+    [200, 450],
+    [400, 450],
+    [0, 600],
+    [200, 600],
+    [400, 600],
+    [0, 750],
+  ];
+  
+const inimigos = [];  
+
 function preload() {    
     imagemCenario = loadImage('imagens/cenario/floresta.png');    
     imagemPersonagem = loadImage('imagens/personagem/correndo.png');        
     imagemInimigoGota =  loadImage('imagens/inimigos/gotinha.png');        
+    imagemInimigoTroll =  loadImage('imagens/inimigos/troll.png');        
+    imagemGameOver =  loadImage('imagens/assets/game-over.png');        
+    imagemInimigoGotaVoadora = loadImage('imagens/inimigos/gotinha-voadora.png');        
     somJogo = loadSound('sons/trilha_jogo.mp3');
     somPulo = loadSound('sons/somPulo.mp3');
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    pontuacao = new Pontuacao();
     cenario = new Cenario(imagemCenario, 4);    
-    personagem = new Personagem(imagemPersonagem);
+    
+    personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270, somPulo);
+    
+    const inimigoGota = new Inimigo(matrizInimigo, imagemInimigoGota, width - 52, 30, 52, 52, 104, 104, 10, 200);
+    const troll = new Inimigo(matrizTroll, imagemInimigoTroll, width - 300, 0, 200, 200, 400, 400, 10, 800);
+    const gotaVoadora = new Inimigo(matrizGotaVoadora, imagemInimigoGotaVoadora, width - 52, 130, 100, 75, 200, 150, 10, 1500);
 
-    personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 110, 135, 220, 270, somPulo);
-    inimigoGota = new Inimigo(matrizInimigo, imagemInimigoGota, width - 52,  52, 52, 104, 104, 10);
+    inimigos.push(inimigoGota);
+    inimigos.push(troll);
+    inimigos.push(gotaVoadora);
 
     frameRate(40);
     //somJogo.loop();
@@ -80,16 +145,22 @@ function draw() {
     cenario.exibe();
     cenario.move();
 
+    pontuacao.exibir();    
+
     personagem.exibir();  
     personagem.aplicarGravidade();  
 
-    inimigoGota.exibir();
-    inimigoGota.mover();    
+    inimigos.forEach(inimigo => {
+        inimigo.exibir();
+        inimigo.mover();        
 
-    if (personagem.detectarColisao(inimigoGota)) {
-        console.log('Tomando taca');
-        noLoop();
-    }
+        if (personagem.detectarColisao(inimigo)) {
+            image(imagemGameOver, width/2 - 200, height/2);
+            noLoop();
+        } else {
+            pontuacao.adicionarPontos();
+        }
+    });
 }
 
 function keyPressed() {
