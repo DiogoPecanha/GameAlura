@@ -1,9 +1,11 @@
 let imagemCenario;
+let imagemCenarioGrama;
 let imagemPersonagem;
 let imagemInimigoGota;
 let imagemInimigoGotaVoadora;
 let imagemGameOver;
 let cenario;
+let cenarioGrama;
 let personagem;
 let somJogo;
 let somPulo;
@@ -113,6 +115,7 @@ const inimigos = [];
 
 function preload() {    
     imagemCenario = loadImage('imagens/cenario/floresta.png');    
+    imagemCenarioGrama = loadImage('imagens/cenario/floresta_chao.png');    
     imagemPersonagem = loadImage('imagens/personagem/correndo.png');        
     imagemInimigoGota =  loadImage('imagens/inimigos/gotinha.png');        
     imagemInimigoTroll =  loadImage('imagens/inimigos/troll.png');        
@@ -126,24 +129,25 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     pontuacao = new Pontuacao();
     cenario = new Cenario(imagemCenario, 4);    
+    cenarioGrama = new Cenario(imagemCenarioGrama, 4); 
     
-    personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270, somPulo);
+    personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 80, 110, 135, 220, 270, somPulo);
     
-    const inimigoGota = new Inimigo(matrizInimigo, imagemInimigoGota, width - 52, 30, 52, 52, 104, 104, 10, 200);
-    const troll = new Inimigo(matrizTroll, imagemInimigoTroll, width - 300, 0, 200, 200, 400, 400, 10, 800);
-    const gotaVoadora = new Inimigo(matrizGotaVoadora, imagemInimigoGotaVoadora, width - 52, 130, 100, 75, 200, 150, 10, 1500);
+    const inimigoGota = new Inimigo(matrizInimigo, imagemInimigoGota, width - 52, 80, 52, 52, 104, 104, 10, 200);
+    const troll = new Inimigo(matrizTroll, imagemInimigoTroll, width - 300, 50, 200, 200, 400, 400, 10, 800);
+    const gotaVoadora = new Inimigo(matrizGotaVoadora, imagemInimigoGotaVoadora, width - 52, 180, 100, 75, 200, 150, 10, 1500);
 
     inimigos.push(inimigoGota);
     inimigos.push(troll);
     inimigos.push(gotaVoadora);
-
+    
     frameRate(40);
     //somJogo.loop();
 }
 
 function draw() {
-    cenario.exibe();
-    cenario.move();
+    cenario.exibir();
+    cenario.mover();
 
     pontuacao.exibir();    
 
@@ -161,6 +165,8 @@ function draw() {
             pontuacao.adicionarPontos();
         }
     });
+    cenarioGrama.exibir();
+    cenarioGrama.mover();
 }
 
 function keyPressed() {
