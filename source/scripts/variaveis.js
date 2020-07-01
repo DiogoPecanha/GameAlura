@@ -16,7 +16,7 @@ let jogo;
 let cenaAtual = 'telaInicial';
 let cenas;
 let telaInicial;
-
+let botaoGerenciador;
 
 const matrizInimigo = [
     [0, 0],

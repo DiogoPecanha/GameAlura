@@ -34,17 +34,17 @@ class Jogo {
         personagem.exibir();  
         personagem.aplicarGravidade();  
     
-        const inimigo = inimigos[indiceInimigoAtual];
+        const inimigo = inimigos[this.indiceInimigoAtual];
         const inimigoVisivel = inimigo.x < -inimigo.largura;
     
         inimigo.exibir();
         inimigo.mover();        
     
         if (inimigoVisivel) {
-            indiceInimigoAtual++;        
+            this.indiceInimigoAtual++;        
             
-            if (indiceInimigoAtual > (inimigos.length - 1))   {
-                indiceInimigoAtual = 0;
+            if (this.indiceInimigoAtual > (inimigos.length - 1))   {
+                this.indiceInimigoAtual = 0;
             }
             inimigo.velocidade = parseInt(random(10,30));
         }

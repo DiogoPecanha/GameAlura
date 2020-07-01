@@ -6,15 +6,15 @@ function setup() {
     jogo.setup();
 
     telaInicial = new TelaInicial();
-
-
-    frameRate(40);
-    //somJogo.loop();
+    botaoGerenciador = new BotaoGerenciador('Iniciar', width/2, height /2);
 
     cenas = {
         jogo,
         telaInicial        
     };
+
+    frameRate(40);
+    //somJogo.loop();    
 }
 
 function draw() {
