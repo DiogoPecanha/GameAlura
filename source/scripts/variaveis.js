@@ -6,6 +6,7 @@ let imagemPersonagem;
 let imagemInimigoGota;
 let imagemInimigoGotaVoadora;
 let imagemGameOver;
+let imagemVida;
 let cenario;
 let cenarioGrama;
 let personagem;
@@ -13,10 +14,13 @@ let somJogo;
 let somPulo;
 let pontuacao;
 let jogo;
+let vida;
 let cenaAtual = 'telaInicial';
 let cenas;
 let telaInicial;
 let botaoGerenciador;
+const inimigos = [];  
+let fita;
 
 const matrizInimigo = [
     [0, 0],
@@ -117,5 +121,3 @@ const matrizGotaVoadora = [
     [400, 600],
     [0, 750],
   ];
-  
-const inimigos = [];  

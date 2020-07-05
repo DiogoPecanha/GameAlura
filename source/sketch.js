@@ -14,7 +14,7 @@ function setup() {
     };
 
     frameRate(40);
-    //somJogo.loop();    
+    somJogo.loop();    
 }
 
 function draw() {

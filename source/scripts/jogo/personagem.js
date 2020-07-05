@@ -9,6 +9,7 @@ class Personagem extends Animacao {
         this.somPulo = somPulo;
         this.quantidadeMaximaPulos = 2;
         this.quantidadePulosConsecutivos = 0;
+        this.invencivel = false;
     }
 
     pular() {
@@ -29,7 +30,18 @@ class Personagem extends Animacao {
         }
     }
 
+    ficarInvencivel() {
+        this.invencivel = true;
+        setTimeout(() => {
+           this.invencivel = false; 
+        }, 1000);
+    }
+
     detectarColisao(inimigo, mostrarAreas = false) {
+        if (this.invencivel) {
+            return false;
+        }
+        
         noFill();
         const precisao = .7;
         
@@ -43,6 +55,7 @@ class Personagem extends Animacao {
                 inimigo.largura * precisao, 
                 inimigo.altura * precisao);
         }
+
         const colisao = collideRectRect(
             this.x, 
             this.y, 

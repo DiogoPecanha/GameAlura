@@ -6,7 +6,7 @@ html, body {
   }
 
   canvas {
-    /*display: block;*/
+    display: block;
   }
 
   .botao-tela-inicial {
