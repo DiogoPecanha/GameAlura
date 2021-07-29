@@ -17,3 +17,5 @@ Desenvolva um Game
 - Dia 3: [Mais inimigos e pontuação](https://www.youtube.com/watch?v=IuVlkxZd4GE&feature=emb_title)
 - Dia 4: [Estado do jogo com cenas diferentes](https://www.youtube.com/watch?v=2nETUc4MCZo&feature=emb_title) 
 - Dia 5: [Vidas e mapa](https://www.youtube.com/watch?v=HD1knuq2v2g&feature=emb_title)
+
+Diogo Peçanha
